@@ -1,12 +1,13 @@
 import './App.css';
-import Cards from './components/Cards.jsx';
-import Nav from './components/Nav';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import About from './view/About';
-import Detail from './components/Detail';
+import axios from 'axios';
+import Detail from './components/Detail/Detail';
+import About from './components/About/About'; 
 import Form from './components/Form/Form';
+import Nav from './components/Nav/Nav';
+import Cards from './components/Cards/Cards';
+import Favorites from './components/Favorites/Favorites'
 
 const URL_BASE = "https://be-a-rym.up.railway.app/api/character"
 const API_KEY = "d4c0456be5a3.a96a007548bd179de603"
@@ -29,7 +30,7 @@ function App() {
 
    useEffect(() => {
       !access && navigate('/')
-   }, [access])
+   }, [access, navigate])
 
    const onSearch = (id) => {
       axios(`${URL_BASE}/${id}?key=${API_KEY}`)
@@ -44,7 +45,7 @@ function App() {
    }
 
    const onClose = (id) => {
-      const charactersFiltered = characters.filter(character => character.id !== Number(id))
+      const charactersFiltered = characters.filter((character) => character.id !== (id))
       setCharacters(charactersFiltered)
    }
 
@@ -56,6 +57,7 @@ function App() {
             <Route path='/home' element = { <Cards characters={characters} onClose={onClose}/>} />
             <Route path='/about' element = {<About/>} />
             <Route path='/detail/:id' element = {<Detail/>} />
+            <Route path='/favorites' element = {<Favorites/>} />
          </Routes>
       </div>
    );

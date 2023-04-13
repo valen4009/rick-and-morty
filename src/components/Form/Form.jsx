@@ -1,3 +1,4 @@
+import "./Form.css"
 import { useState } from "react";
 import validation from "./validation";
 
@@ -27,32 +28,38 @@ const Form = ({ login }) => {
     }
 
     return(
-        <form onSubmit={handleSubmit}>
+        <div className="todo2">
+        <form onSubmit={handleSubmit} className="form">
+            <img src="./images.jpeg" alt="" class="fondLog" />
             <div>
-                <label htmlFor="email">Email:</label>
+                <label htmlFor="email" className="mail">Email:</label>
                 <input 
                     type="text"
-                    placeholder="ingrese su mail"
+                    placeholder="   ingrese su mail"
                     name="email"
                     value={userData.email}
                     onChange={handleChange}
+                    class="bar1"
                 />
-                <p style={{color: 'red'}}>{errors.email}</p>
+                <p style={{color: 'rgb(203, 254, 222)'}}>{errors.email}</p>
                 <span>{validation}</span>
             </div>
             <div>
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password" className="pass">Password:</label>
                 <input 
                     type="text"
-                    placeholder="ingrese su password"
+                    placeholder="   ingrese su password"
                     name="password"
                     value={userData.password}
                     onChange={handleChange}
+                    class="bar2"
                 />
-                <p style={{color: 'red'}}>{errors.password}</p>
+                <p style={{color: 'rgb(203, 254, 222)'}}>{errors.password}</p>
             </div>
-            <button type='submit'>Login</button>
+            <button type='submit' className="clickLogin">Login</button>
+            
         </form>
+        </div>
     )
 }
 
