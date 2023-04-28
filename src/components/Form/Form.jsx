@@ -47,7 +47,7 @@ const Form = ({ login }) => {
             <div>
                 <label htmlFor="password" className="pass">Password:</label>
                 <input 
-                    type="text"
+                    type="password"
                     placeholder="   ingrese su password"
                     name="password"
                     value={userData.password}

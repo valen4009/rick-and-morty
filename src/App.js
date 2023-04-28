@@ -9,8 +9,9 @@ import Nav from './components/Nav/Nav';
 import Cards from './components/Cards/Cards';
 import Favorites from './components/Favorites/Favorites'
 
-const URL_BASE = "https://be-a-rym.up.railway.app/api/character"
-const API_KEY = "d4c0456be5a3.a96a007548bd179de603"
+const URL_BASE = "http://localhost:3001/rickandmorty/character"
+//const URL_BASE = "https://be-a-rym.up.railway.app/api/character"
+//const API_KEY = "d4c0456be5a3.a96a007548bd179de603"
 
 function App() {
    const [characters, setCharacters] = useState([]);
@@ -33,7 +34,8 @@ function App() {
    }, [access, navigate])
 
    const onSearch = (id) => {
-      axios(`${URL_BASE}/${id}?key=${API_KEY}`)
+      //axios(`${URL_BASE}/${id}?key=${API_KEY}`)
+      axios(`${URL_BASE}/${id}`)
       .then(response => response.data)
       .then((data) => {
          if (data.name) {

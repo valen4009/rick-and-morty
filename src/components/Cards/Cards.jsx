@@ -21,6 +21,9 @@ function Cards({ characters, onClose }) {
                )
             })
          }
+         <video muted autoPlay loop preload>
+            <source src="../../../public/nebulosa-25047.mp4" type="video/mp4" />
+         </video>
       </div>
    )
 }
